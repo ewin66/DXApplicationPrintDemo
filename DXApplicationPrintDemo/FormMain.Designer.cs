@@ -44,10 +44,14 @@
             this.printNavBarGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItemPrintDirectly = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemPreview = new DevExpress.XtraNavBar.NavBarItem();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barEditItemBottomMargin = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemTextEditBottomMargin = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tabbedView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEditBottomMargin)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonControl
@@ -59,13 +63,16 @@
             this.skinRibbonGalleryBarItem,
             this.barSubItemNavigation,
             this.skinDropDownButtonItem,
-            this.skinPaletteRibbonGalleryBarItem});
+            this.skinPaletteRibbonGalleryBarItem,
+            this.barEditItemBottomMargin});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 46;
+            this.ribbonControl.MaxItemId = 47;
             this.ribbonControl.MdiMergeStyle = DevExpress.XtraBars.Ribbon.RibbonMdiMergeStyle.Always;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
+            this.ribbonControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemTextEditBottomMargin});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.Size = new System.Drawing.Size(922, 160);
@@ -99,7 +106,8 @@
             // 
             this.ribbonPage.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroupNavigation,
-            this.ribbonPageGroup});
+            this.ribbonPageGroup,
+            this.ribbonPageGroup1});
             this.ribbonPage.Name = "ribbonPage";
             this.ribbonPage.Text = "View";
             // 
@@ -174,6 +182,28 @@
             this.navBarItemPreview.Name = "navBarItemPreview";
             this.navBarItemPreview.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemPreview_LinkClicked);
             // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barEditItemBottomMargin);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "SetMargin";
+            // 
+            // barEditItemBottomMargin
+            // 
+            this.barEditItemBottomMargin.Caption = "BottomMargin";
+            this.barEditItemBottomMargin.Edit = this.repositoryItemTextEditBottomMargin;
+            this.barEditItemBottomMargin.EditValue = "100";
+            this.barEditItemBottomMargin.Id = 46;
+            this.barEditItemBottomMargin.Name = "barEditItemBottomMargin";
+            this.barEditItemBottomMargin.EditValueChanged += new System.EventHandler(this.barEditItemBottomMargin_EditValueChanged);
+            // 
+            // repositoryItemTextEditBottomMargin
+            // 
+            this.repositoryItemTextEditBottomMargin.AutoHeight = false;
+            this.repositoryItemTextEditBottomMargin.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemTextEditBottomMargin.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.repositoryItemTextEditBottomMargin.Name = "repositoryItemTextEditBottomMargin";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -190,6 +220,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.officeNavigationBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEditBottomMargin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +242,8 @@
         private DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem skinPaletteRibbonGalleryBarItem;
         private DevExpress.XtraNavBar.NavBarItem navBarItemPrintDirectly;
         private DevExpress.XtraNavBar.NavBarItem navBarItemPreview;
+        private DevExpress.XtraBars.BarEditItem barEditItemBottomMargin;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEditBottomMargin;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
     }
 }

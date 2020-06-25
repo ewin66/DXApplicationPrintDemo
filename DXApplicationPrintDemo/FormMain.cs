@@ -14,6 +14,7 @@ namespace DXApplicationPrintDemo
 {
     public partial class FormMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        int BottomMargin = 0;
         public FormMain()
         {
             InitializeComponent();
@@ -36,8 +37,6 @@ namespace DXApplicationPrintDemo
                 {
                     ReportPrintTool printTool = new ReportPrintTool(report);
                     report.CreateDocument();
-                    report.PrintingSystem.PageSettings.PaperKind = System.Drawing.Printing.PaperKind.A4;
-                    report.PrintingSystem.PageSettings.BottomMargin = 0;
                     report.PrintingSystem.ShowMarginsWarning = false;
 
                     printTool.Print();
@@ -60,10 +59,12 @@ namespace DXApplicationPrintDemo
             {
                 using (XtraReportDemo report = new XtraReportDemo())
                 {
+                    report.PrintingSystem.PageSettings.BottomMargin = int.Parse(barEditItemBottomMargin.EditValue.ToString());
                     ReportPrintTool printTool = new ReportPrintTool(report);
                     //report.CreateDocument();
                     printTool.PrintingSystem.ShowMarginsWarning = false;
                     printTool.AutoShowParametersPanel = false;
+                    printTool.Report.;
                     printTool.ShowPreviewDialog();
                     printTool.Dispose();
                     //SetShowPreviewTools(report);
@@ -75,6 +76,11 @@ namespace DXApplicationPrintDemo
             finally
             {
             }
+        }
+
+        private void barEditItemBottomMargin_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

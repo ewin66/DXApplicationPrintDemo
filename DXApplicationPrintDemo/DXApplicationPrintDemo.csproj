@@ -102,6 +102,9 @@
     <EmbeddedResource Include="XtraReportBase.resx">
       <DependentUpon>XtraReportBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XtraReportDemo.resx">
+      <DependentUpon>XtraReportDemo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="Preview.pdf" />
     <None Include="PrintDirectly.pdf" />

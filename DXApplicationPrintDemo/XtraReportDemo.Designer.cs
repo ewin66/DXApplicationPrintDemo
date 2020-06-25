@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            // 
+            // XtraReportDemo
+            // 
+            this.Version = "19.2";
+            this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.XtraReportDemo_BeforePrint);
+            this.AfterPrint += new System.EventHandler(this.XtraReportDemo_AfterPrint);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+
         }
 
         #endregion
