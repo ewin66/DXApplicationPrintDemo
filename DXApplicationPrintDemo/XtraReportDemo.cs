@@ -15,12 +15,12 @@ namespace DXApplicationPrintDemo
 
         private void XtraReportDemo_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show(this.Margins.Bottom.ToString());
+            //////////System.Windows.Forms.MessageBox.Show(this.Margins.Bottom.ToString());
         }
 
         private void XtraReportDemo_AfterPrint(object sender, EventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show(this.Margins.Bottom.ToString());
+            ///////////System.Windows.Forms.MessageBox.Show(this.Margins.Bottom.ToString());
         }
     }
 }

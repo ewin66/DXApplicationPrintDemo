@@ -32,6 +32,7 @@
             // 
             // XtraReportDemo
             // 
+            this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.Version = "19.2";
             this.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.XtraReportDemo_BeforePrint);
             this.AfterPrint += new System.EventHandler(this.XtraReportDemo_AfterPrint);

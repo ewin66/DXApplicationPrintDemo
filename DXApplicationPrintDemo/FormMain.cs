@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using System.Drawing.Printing;
 
 namespace DXApplicationPrintDemo
 {
@@ -36,6 +37,19 @@ namespace DXApplicationPrintDemo
                 using (XtraReportDemo report = new XtraReportDemo())
                 {
                     ReportPrintTool printTool = new ReportPrintTool(report);
+                   
+                    report.Margins.Left = 0;    //work
+                    report.Margins.Right = 0;   //work
+                    report.Margins.Top = 200;     //not work
+                    report.Margins.Bottom = 200;  //not work
+
+                    PrinterSettings ps = new PrinterSettings(); //use PrinterName if the printer is not the default one  
+                    ////ps.PrinterName = ""; //Specify PrinterName
+                    using (Graphics g = ps.CreateMeasurementGraphics(ps.DefaultPageSettings))
+                    {
+                        var margins = DevExpress.XtraPrinting.Native.DeviceCaps.GetMinMargins(g); //in default report units; do conversion with the help PSUnitConverter when needed
+                    }
+
                     report.CreateDocument();
                     report.PrintingSystem.ShowMarginsWarning = false;
 
@@ -59,12 +73,22 @@ namespace DXApplicationPrintDemo
             {
                 using (XtraReportDemo report = new XtraReportDemo())
                 {
-                    report.PrintingSystem.PageSettings.BottomMargin = int.Parse(barEditItemBottomMargin.EditValue.ToString());
+                    PrinterSettings ps = new PrinterSettings(); //use PrinterName if the printer is not the default one  
+                    ////ps.PrinterName = ""; //Specify PrinterName
+                    using (Graphics g = ps.CreateMeasurementGraphics(ps.DefaultPageSettings))
+                    {
+                        var margins = DevExpress.XtraPrinting.Native.DeviceCaps.GetMinMargins(g); //in default report units; do conversion with the help PSUnitConverter when needed
+                    }
+
+                    report.Margins.Left = 0;    //work
+                    report.Margins.Right = 0;   //work
+                    report.Margins.Top = 200;     //not work
+                    report.Margins.Bottom = 200;  //not work
+
                     ReportPrintTool printTool = new ReportPrintTool(report);
                     //report.CreateDocument();
                     printTool.PrintingSystem.ShowMarginsWarning = false;
                     printTool.AutoShowParametersPanel = false;
-                    printTool.Report.;
                     printTool.ShowPreviewDialog();
                     printTool.Dispose();
                     //SetShowPreviewTools(report);
